@@ -12,7 +12,7 @@ import (
 )
 
 type Application struct {
-	Logger *slog.Logger
+	Logger          *slog.Logger
 	URLMappingModel models.URLMappingModelInterface
 }
 
@@ -35,13 +35,13 @@ func main() {
 	}()
 
 	app := Application{
-		Logger: logger,
+		Logger:          logger,
 		URLMappingModel: &models.URLMappingModel{MongoClient: mongoClient},
 	}
 
 	server := http.Server{
-		Addr: ":4000",
-		Handler: app.routes(),
+		Addr:     ":4000",
+		Handler:  app.routes(),
 		ErrorLog: slog.NewLogLogger(app.Logger.Handler(), slog.LevelError),
 	}
 
