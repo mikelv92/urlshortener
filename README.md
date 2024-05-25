@@ -3,8 +3,10 @@
 To run the app:
 
 ```bash
-docker run -p 27017:27017 mongo
-go run ./cmd/api
+$ docker run -p 27017:27017 mongo
+```
+```bash
+$ go run ./cmd/api
 ```
 
 To create a short URL:
